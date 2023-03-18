@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MovieApp</string>
+    <string name="play">Play</string>
+    <string name="deadpool2">DeadPool2</string>
+    <string name="profile">profile</string>
+    <string name="imdb">imdb</string>
+    <string name="desc">Foul-mouthed mutant mercenary Wade Wilson (a.k.a. Deadpool) assembles a team of fellow mutant rogues to protect a young boy with supernatural abilities from the brutal, time-traveling cyborg Cable.</string>
+    <string name="may_15th_2018">May 15th , 2018</string>
+    <string name="read_more"><u>Read More</u></string>
+    <string name="cast">Cast</string>
+    <string name="crew">Crew</string>
+    <string name="read_less">Read Less</string>
+    <string name="similar_movies">Similar Movies</string>
+    <string name="fav">Favourite</string>
+</resources>

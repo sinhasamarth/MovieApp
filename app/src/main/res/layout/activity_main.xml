@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#343434">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity">
+
+        <ImageView
+
+            android:id="@+id/im_banner"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:contentDescription="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@color/black" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_trailers_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-80dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/im_banner"
+            tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_trailer" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="-20dp"
+            android:layout_marginEnd="10dp"
+            android:translationZ="100dp"
+            app:cardBackgroundColor="#E91E7D"
+            app:cardCornerRadius="150dp"
+            app:layout_constraintEnd_toEndOf="@+id/cardView"
+            app:layout_constraintTop_toTopOf="@+id/cardView">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/fav"
+                android:src="@drawable/baseline_favorite_24" />
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/im_divider"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:contentDescription="@null"
+            android:layerType="software"
+            android:src="@drawable/dotted"
+            app:layout_constraintBottom_toTopOf="@+id/cardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_trailers_video" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintTop_toBottomOf="@id/im_divider"
+            tools:layout_editor_absoluteX="10dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/deadpool2"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/im_imdb_logo"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:contentDescription="@string/imdb"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/imdb_internet_movie_database"
+                    app:layout_constraintStart_toStartOf="@+id/tv_title"
+                    app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/fb_tags"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    app:flexWrap="wrap"
+                    app:layout_constraintLeft_toRightOf="@id/im_imdb_logo"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/im_imdb_logo">
+
+                    <include
+                        android:id="@+id/l_action"
+                        layout="@layout/item_tc_with_bg" />
+
+                    <include
+                        android:id="@+id/l_comdey"
+                        layout="@layout/item_tc_with_bg" />
+
+                    <include
+                        android:id="@+id/l_science_fiction"
+                        layout="@layout/item_tc_with_bg" />
+
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/desc"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fb_tags" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView">
+
+
+                    <include
+                        android:id="@+id/l_post_production"
+                        layout="@layout/item_tc_with_bg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/may_15th_2018"
+                        android:textAlignment="textStart"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/tv_read_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:text="@string/read_more"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                    android:textColor="#2196F3"
+                    app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+                <include
+                    android:id="@+id/l_cast"
+                    layout="@layout/headline_with_img_and_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_read_more" />
+
+
+                <include
+                    android:id="@+id/l_crew"
+                    layout="@layout/headline_with_img_and_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/l_cast" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <Space
+            android:id="@+id/spacer"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+        <include
+            android:id="@+id/l_recommended_movies"
+            layout="@layout/headline_with_img_and_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottom_spacer"
+            app:layout_constraintTop_toBottomOf="@id/spacer" />
+
+        <Space
+            android:id="@+id/bottom_spacer"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
